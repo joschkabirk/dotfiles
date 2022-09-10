@@ -3,3 +3,4 @@
 # EXECUTE IN THE ROOT OF THIS REPO
 
 ln -s $PWD/bashrc ~/.bashrc
+ln -s $PWD/vimrc ~/.vimrc
