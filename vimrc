@@ -11,10 +11,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-" Create undodir if it doesn't exist
-if empty(glob('~/.vim/undodir'))
-  silent !mkdir -pv ~/.vim/undodir
-endif
 
 " List the plugins to be installed
 " For more information just check github.com/<plugin_name>
@@ -31,6 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-python/python-syntax'                 " Python syntax highlight
     Plug 'Vimjas/vim-python-pep8-indent'            " Fixes python indenting (pep8 conventions)
     Plug 'psf/black', { 'branch': 'stable' }        " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
+    Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     " Plug 'neoclide/coc.nvim', {'branch': 'release'} " Vim plugin for VSCode style autocomplete and more
     " Plug 'jiangmiao/auto-pairs'                     " Insert brackets in pairs
 call plug#end()
@@ -58,10 +55,21 @@ set softtabstop=4
 set history=1000            " Remember more commands and search history
 set nobackup                " No backup or swap file, live dangerously
 set noswapfile              " Because swap files give annoying warning
+" Create undodir if it doesn't exist
+if empty(glob('~/.vim/undodir'))
+  silent !mkdir -pv ~/.vim/undodir
+endif
 set undodir=~/.vim/undodir  " Set directory for undofile
 set undofile                " Save undos (then still accessible after closing a file)
 set undolevels=10000        " Maximum number of changes that can be undone
 set undoreload=100000       " Maximum number lines to save for undo on a buffer reload
+" Do the same with undodir_neovim for neovim (to avoid conflicting undofiles)
+if has("nvim")
+    if empty(glob('~/.vim/undodir_neovim'))
+      silent !mkdir -pv ~/.vim/undodir_neovim
+    endif
+    set undodir=~/.vim/undodir_neovim  " Set directory for undofile
+endif
 
 " Split view settings
 set splitright          " Vsplit: new window on the right (instead of left)
