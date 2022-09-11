@@ -8,6 +8,8 @@ export TERM=xterm-256color
 [ -f /etc/bashrc ] && . /etc/bashrc
 # source system-specific stuff if bash-extra exists
 [ -f ~/.bashrc_extra ] && . ~/.bashrc_extra
+# source git bash completion
+[ -f /etc/bash_completion.d/git ] && . /etc/bash_completion.d/git
 
 # user specific aliases and functions
 alias ll="ls -l"
