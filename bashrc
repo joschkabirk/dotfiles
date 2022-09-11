@@ -1,18 +1,21 @@
 # set vim keybindings in command line
 set -o vi
 
-# Source global definitions
+# set colours such that vim colourscheme works properly
+export TERM=xterm-256color
+
+# source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# User specific aliases and functions
+# user specific aliases and functions
 alias ll="ls -l"
 alias la="ls -la"
 alias python="python3"
 alias rm="rm -i"
 
-# Command prompt
+# command prompt
 parse_git_branch () {
 	# function to get git branch from current directory
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
