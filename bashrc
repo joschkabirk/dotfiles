@@ -5,9 +5,9 @@ set -o vi
 export TERM=xterm-256color
 
 # source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+[ -f /etc/bashrc ] && . /etc/bashrc
+# source system-specific stuff if bash-extra exists
+[ -f ~/.bashrc_extra ] && . ~/.bashrc_extra
 
 # user specific aliases and functions
 alias ll="ls -l"
