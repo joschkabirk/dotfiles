@@ -2,8 +2,12 @@
 
 ## Setup on new machine
 
+Clone repo to new machine
 ```bash
-git clone git@github.com:jobirk/dotfiles.git
-cd dotfiles
-./setup.sh
+git clone https://github.com/jobirk/dotfiles.git
+```
+
+Setup the symlinks
+```bash
+cd dotfiles && ./setup.sh
 ```
