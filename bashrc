@@ -29,3 +29,14 @@ LIGHT_BLUE="36"
 MAGENTA="35"
 # prompt below will result in "<username>@<hostname> <current_directory> (<git_branch>) $"
 export PS1="\[\033[0;${LIGHT_BLUE}m\]\u@\h \w\[\033[0;${MAGENTA}m\]\$(parse_git_branch) \[\033[0;m\]$ "
+
+set_bash_completion_case_insensitive () {
+    # function to make bash tab-completion case-insensitive
+    # on a new system, call this once
+    # If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc
+    # so it won't get overriden
+    if [ ! -a ~/.inputrc ]; then echo '$include /etc/inputrc' > ~/.inputrc; fi
+
+    # Add shell-option to ~/.inputrc to enable case-insensitive tab completion
+    echo 'set completion-ignore-case On' >> ~/.inputrc
+}
