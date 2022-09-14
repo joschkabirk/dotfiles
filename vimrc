@@ -36,6 +36,9 @@ call plug#end()
 " General stuff
 " -----------------------------------------------------------------------------
 
+set path+=** " Make vim search all subdirectories (from where you opened vim) when using :find
+set wildmenu " Nice tab-complete pop-up in vim command line (e.g. :f<tab> --> ':find', ':final', ...)
+
 " Line numbers and syntax
 set number
 set relativenumber      " To confuse colleagues
