@@ -28,7 +28,7 @@ parse_git_branch () {
 LIGHT_BLUE="36"
 MAGENTA="35"
 # prompt below will result in "<username>@<hostname> <current_directory> (<git_branch>) $"
-export PS1="\[\033[0;${LIGHT_BLUE}m\]\u@\h \w\[\033[0;${MAGENTA}m\]\$(parse_git_branch) \[\033[0;m\]$ "
+export PS1="\[\033[0;${LIGHT_BLUE}m\]\u@\h \w\[\033[0;${MAGENTA}m\]\$(parse_git_branch) \n\[\033[0;m\]$ "
 
 set_bash_completion_case_insensitive () {
     # function to make bash tab-completion case-insensitive
