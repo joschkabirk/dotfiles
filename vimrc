@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Vimjas/vim-python-pep8-indent'            " Fixes python indenting (pep8 conventions)
     Plug 'psf/black', { 'branch': 'stable' }        " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
+    Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     " Plug 'neoclide/coc.nvim', {'branch': 'release'} " Vim plugin for VSCode style autocomplete and more
     " Plug 'jiangmiao/auto-pairs'                     " Insert brackets in pairs
 call plug#end()
@@ -35,6 +36,7 @@ call plug#end()
 " -----------------------------------------------------------------------------
 " General stuff
 " -----------------------------------------------------------------------------
+runtime! macros/matchit.vim " Activate built-in matching plugin
 
 set path+=** " Make vim search all subdirectories (from where you opened vim) when using :find
 set wildmenu " Nice tab-complete pop-up in vim command line (e.g. :f<tab> --> ':find', ':final', ...)
