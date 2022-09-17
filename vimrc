@@ -95,8 +95,6 @@ set backspace=indent,eol,start
 
 " Shortcut to enter paste mode
 set pastetoggle=<C-p>
-" Keybinding for opening a terminal
-nnoremap <C-t> :ter++rows=20<CR>
 
 " -----------------------------------------------------------------------------
 " Plugin related
@@ -141,3 +139,12 @@ autocmd FileType nerdtree setlocal relativenumber
 let g:python_highlight_all = 1
 " --- Yaml settings
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <C-w>w :TmuxNavigatePrevious<cr>
+nnoremap <silent> <C-w><C-w> :TmuxNavigatePrevious<cr>
