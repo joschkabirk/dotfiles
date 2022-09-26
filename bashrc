@@ -2,12 +2,11 @@
 set -o vi
 
 # set colours such that vim colourscheme works properly
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # source global definitions
 [ -f /etc/bashrc ] && . /etc/bashrc
-# source system-specific stuff if bash-extra exists
-[ -f ~/.bashrc_extra ] && . ~/.bashrc_extra
+
 # source git bash completion
 [ -f /etc/bash_completion.d/git ] && . /etc/bash_completion.d/git
 
@@ -40,3 +39,6 @@ set_bash_completion_case_insensitive () {
     # Add shell-option to ~/.inputrc to enable case-insensitive tab completion
     echo 'set completion-ignore-case On' >> ~/.inputrc
 }
+
+# source system-specific stuff if bash-extra exists
+[ -f ~/.bashrc_extra ] && . ~/.bashrc_extra
