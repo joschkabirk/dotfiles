@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhartington/oceanic-next'                 " Dark colorscheme 
     Plug 'vim-python/python-syntax'                 " Python syntax highlight
     Plug 'Vimjas/vim-python-pep8-indent'            " Fixes python indenting (pep8 conventions)
-    Plug 'psf/black', { 'branch': 'stable' }        " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
+    Plug 'psf/black'                                " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     " Plug 'neoclide/coc.nvim', {'branch': 'release'} " Vim plugin for VSCode style autocomplete and more
@@ -101,7 +101,7 @@ set pastetoggle=<C-p>
 " Shortcut for NerdTree toggle (toggle on ctrl+n)
 nmap <C-n> :NERDTreeToggle<CR>
 " Shortcut for black
-nnoremap <C-b> :Black<CR>
+" nnoremap <C-b> :Black<CR>
 " ctrlp (fuzzy file search) keybindings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -139,6 +139,7 @@ autocmd FileType nerdtree setlocal relativenumber
 let g:python_highlight_all = 1
 " --- Yaml settings
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -148,3 +149,12 @@ nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>w :TmuxNavigatePrevious<cr>
 nnoremap <silent> <C-w><C-w> :TmuxNavigatePrevious<cr>
+
+if exists('g:vscode')
+    " VSCode extension
+    " Mappings for commenting
+	xmap gc  <Plug>VSCodeCommentary
+	nmap gc  <Plug>VSCodeCommentary
+	omap gc  <Plug>VSCodeCommentary
+	nmap gcc <Plug>VSCodeCommentaryLine
+end
