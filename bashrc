@@ -14,7 +14,7 @@ export TERM=screen-256color
 alias ll="ls -l"
 alias la="ls -la"
 alias python="python3"
-alias rm="rm -i"
+alias rm="rm -iv"
 
 # command prompt
 parse_git_branch () {
