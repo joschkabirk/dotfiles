@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'psf/black', { 'branch': 'stable' }        " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
-    Plug 'christoomey/vim-system-copy'              " Copy/paste to/from system clipboard using 'cp<motion>'/'cv<motion>'
+    Plug 'ojroques/vim-oscyank', {'branch': 'main'} " Copy/paste to/from system clipboard using <visual_selection> --> :oscyank
 call plug#end()
 
 " -----------------------------------------------------------------------------
@@ -157,3 +157,5 @@ if exists('g:vscode')
 	omap gc  <Plug>VSCodeCommentary
 	nmap gcc <Plug>VSCodeCommentaryLine
 end
+
+nmap cp <Plug>OSCYank
