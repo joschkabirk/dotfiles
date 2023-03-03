@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mhartington/oceanic-next'                 " Dark colorscheme 
     Plug 'vim-python/python-syntax'                 " Python syntax highlight
     Plug 'Vimjas/vim-python-pep8-indent'            " Fixes python indenting (pep8 conventions)
-    Plug 'psf/black', { 'branch': 'stable' }        " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
+    Plug 'psf/black'                                " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     Plug 'ojroques/vim-oscyank', {'branch': 'main'} " Copy/paste to/from system clipboard using <visual_selection> --> :oscyank
