@@ -73,6 +73,10 @@ if has("nvim")
       silent !mkdir -pv ~/.vim/undodir_neovim
     endif
     set undodir=~/.vim/undodir_neovim  " Set directory for undofile
+    augroup highlight_yank
+        autocmd!
+        au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=600 }
+    augroup END
 endif
 
 " Split view settings
