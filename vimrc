@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'psf/black'                                " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
-    Plug 'github/copilot.vim'                       " Copilot for vim
+    " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
 " -----------------------------------------------------------------------------
