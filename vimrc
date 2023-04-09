@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     Plug 'ojroques/vim-oscyank', {'branch': 'main'} " Copy/paste to/from system clipboard using <visual_selection> --> :oscyank
+    Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
 " -----------------------------------------------------------------------------
