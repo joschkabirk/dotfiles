@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'psf/black'                                " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
+    Plug 'PhilRunninger/nerdtree-visual-selection'
     " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
@@ -153,14 +154,14 @@ nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>w :TmuxNavigatePrevious<cr>
 nnoremap <silent> <C-w><C-w> :TmuxNavigatePrevious<cr>
 
-if exists('g:vscode')
-    " VSCode extension
-    " Mappings for commenting
-	xmap gc  <Plug>VSCodeCommentary
-	nmap gc  <Plug>VSCodeCommentary
-	omap gc  <Plug>VSCodeCommentary
-	nmap gcc <Plug>VSCodeCommentaryLine
-    autocmd BufEnter *.ipynb#* if mode() == 'n' | call feedkeys("a\<C-c>")
-end
+" if exists('g:vscode')
+"     " VSCode extension
+"     " Mappings for commenting
+" 	xmap gc  <Plug>VSCodeCommentary
+" 	nmap gc  <Plug>VSCodeCommentary
+" 	omap gc  <Plug>VSCodeCommentary
+" 	nmap gcc <Plug>VSCodeCommentaryLine
+"     autocmd BufEnter *.ipynb#* if mode() == 'n' | call feedkeys("a\<C-c>")
+" end
 
 nmap cp <Plug>OSCYank
