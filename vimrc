@@ -1,3 +1,29 @@
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+
+" ------------- VSCode only start
+" Minimalistic version for when used in VSCode
+if exists('g:vscode')
+
+" VSCode extension
+" Mappings for commenting
+xmap gc  <Plug>VSCodeCommentary
+nmap gc  <Plug>VSCodeCommentary
+omap gc  <Plug>VSCodeCommentary
+nmap gcc <Plug>VSCodeCommentaryLine
+autocmd BufEnter *.ipynb#* if mode() == 'n' | call feedkeys("a\<C-c>")
+call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-surround'             " Change and add such surroundings in pairs
+call plug#end()
+" ------------ VSCode only end
+
+else
+
+" Everything below here is what is used in plain vim/neovim
 " -----------------------------------------------------------------------------
 " Plugin Manager
 " -----------------------------------------------------------------------------
@@ -5,12 +31,6 @@
 "  :PlugUpdate
 "  :PlugInstall
 "  :PlugClean
-
-" Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
 
 " List the plugins to be installed
 " For more information just check github.com/<plugin_name>
@@ -154,14 +174,6 @@ nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>w :TmuxNavigatePrevious<cr>
 nnoremap <silent> <C-w><C-w> :TmuxNavigatePrevious<cr>
 
-" if exists('g:vscode')
-"     " VSCode extension
-"     " Mappings for commenting
-" 	xmap gc  <Plug>VSCodeCommentary
-" 	nmap gc  <Plug>VSCodeCommentary
-" 	omap gc  <Plug>VSCodeCommentary
-" 	nmap gcc <Plug>VSCodeCommentaryLine
-"     autocmd BufEnter *.ipynb#* if mode() == 'n' | call feedkeys("a\<C-c>")
-" end
 
 nmap cp <Plug>OSCYank
+end
