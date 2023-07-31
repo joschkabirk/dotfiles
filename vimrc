@@ -23,6 +23,7 @@ call plug#end()
 
 else
 
+" NOTE:
 " Everything below here is what is used in plain vim/neovim
 " -----------------------------------------------------------------------------
 " Plugin Manager
@@ -176,4 +177,7 @@ nnoremap <silent> <C-w><C-w> :TmuxNavigatePrevious<cr>
 
 
 nmap cp <Plug>OSCYank
+
+" The 'end' below is there to enclose all the above in the overall if/else
+" block which separates the VSCode stuff from the default vim/neovim stuff
 end
