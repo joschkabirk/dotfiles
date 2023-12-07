@@ -139,5 +139,5 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.zshrc_extra ] && . ~/.zshrc_extra
 
 if [ -n "$SINGULARITY_CONTAINER" ]; then
-      PS1="$PS1 Singularity > "
+      PS1="$PS1 %F{green}Singularity > %f"
 fi
