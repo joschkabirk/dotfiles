@@ -26,8 +26,8 @@ setopt SHARE_HISTORY
 #setopt NO_BEEP
 
 # user specific aliases and functions
-alias ll="ls -l"
-alias la="ls -la"
+alias ll="ls -lh"
+alias la="ls -lha"
 alias python="python3"
 alias rm="rm -iv"
 
