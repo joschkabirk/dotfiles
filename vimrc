@@ -54,6 +54,7 @@ call plug#begin('~/.vim/plugged')
     " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
+set modifiable
 " -----------------------------------------------------------------------------
 " General stuff
 " -----------------------------------------------------------------------------

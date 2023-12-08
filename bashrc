@@ -42,3 +42,19 @@ set_bash_completion_case_insensitive () {
 
 # source system-specific stuff if bash-extra exists
 [ -f ~/.bashrc_extra ] && . ~/.bashrc_extra
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/software/anaconda3/5.2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/software/anaconda3/5.2/etc/profile.d/conda.sh" ]; then
+        . "/software/anaconda3/5.2/etc/profile.d/conda.sh"
+    else
+        export PATH="/software/anaconda3/5.2/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
