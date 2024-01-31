@@ -113,6 +113,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+TERM=xterm-256color
 
 # User configuration
 
@@ -142,6 +143,6 @@ source $ZSH/oh-my-zsh.sh
 # source system-specific stuff if bash-extra exists
 [ -f ~/.zshrc_extra ] && . ~/.zshrc_extra
 
-if [ -n "$SINGULARITY_CONTAINER" ]; then
-      PS1="$PS1 %F{green}Singularity > %f"
-fi
+# if [ -n "$SINGULARITY_CONTAINER" ]; then
+#       PS1="$PS1 %F{green}Singularity > %f"
+# fi
