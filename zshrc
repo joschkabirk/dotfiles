@@ -109,6 +109,7 @@ ZSH_THEME="kphoen"
 plugins=(
     git 
     vi-mode
+    # https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
     zsh-autosuggestions
 )
 
