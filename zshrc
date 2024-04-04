@@ -144,9 +144,27 @@ TERM=xterm-256color
 # source system-specific stuff if bash-extra exists
 [ -f ~/.zshrc_extra ] && . ~/.zshrc_extra
 
+# Find and set branch name var if in git repository.
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch') '
+  fi
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+# Define the pre-command and the prompt
 if [ -n "$SINGULARITY_CONTAINER" ]; then
-      PS1="$PS1 %F{green}Singularity > %f"
+    precmd() { print -P "%F{green}[Singularity] $(git_branch_name)%f%F{red}%n%f@%F{blue}%m%f:%~" }
+else
+    precmd() { print -P "%F{green}$(git_branch_name)%f%F{red}%n%f@%F{blue}%m%f:%~" }
 fi
+export PROMPT=""
 
 function joshuto() {
 	ID="$$"
