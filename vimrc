@@ -3,7 +3,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-
+if has("nvim")
+" Install vim-plug for Neovim if not found
+    if empty(glob('~/.config/nvim/autoload/plug.vim'))
+      silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    endif
+endif
 
 " ------------- VSCode only start
 " Minimalistic version for when used in VSCode
@@ -15,10 +21,27 @@ xmap gc  <Plug>VSCodeCommentary
 nmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
+
+" Search settings
+set hlsearch            " Highlight search and search while typing
+set incsearch           " Cursor jumps to first matching while typing
+set ignorecase          " Non-case sensitive search
+set cpoptions+=x        " Stay at search item when <esc>
+
 autocmd BufEnter *.ipynb#* if mode() == 'n' | call feedkeys("a\<C-c>")
+
 call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'             " Change and add such surroundings in pairs
+    Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
 call plug#end()
+
+if has("nvim")
+    augroup highlight_yank
+        autocmd!
+        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+    augroup END
+endif
+
 " ------------ VSCode only end
 
 else
