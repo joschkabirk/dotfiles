@@ -192,6 +192,8 @@ function joshuto() {
 }
 
 # helper function to add support for changing directory when closing ranger
+# ":q" for normal quit
+# "Q" for quit and change directory to the current ranger directory
 function ranger {
 	local IFS=$'\t\n'
 	local tempfile="$(mktemp -t tmp.XXXXXX)"
@@ -207,3 +209,5 @@ function ranger {
 	fi
 	command rm -f -- "$tempfile" 2>/dev/null
 }
+# line below is to avoid "Warning: Unable to set locale.  Expect encoding problems." by ranger...
+export LC_ALL=C
