@@ -144,6 +144,31 @@ TERM=xterm-256color
 # source system-specific stuff if bash-extra exists
 [ -f ~/.zshrc_extra ] && . ~/.zshrc_extra
 
-# if [ -n "$SINGULARITY_CONTAINER" ]; then
-#       PS1="$PS1 %F{green}Singularity > %f"
-# fi
+if [ -n "$SINGULARITY_CONTAINER" ]; then
+      PS1="$PS1 %F{green}Singularity > %f"
+fi
+
+function joshuto() {
+	ID="$$"
+	mkdir -p /tmp/$USER
+	OUTPUT_FILE="/tmp/$USER/joshuto-cwd-$ID"
+	env joshuto --output-file "$OUTPUT_FILE" $@
+	exit_code=$?
+
+	case "$exit_code" in
+		# regular exit
+		0)
+			;;
+		# output contains current directory
+		101)
+			JOSHUTO_CWD=$(cat "$OUTPUT_FILE")
+			cd "$JOSHUTO_CWD"
+			;;
+		# output selected files
+		102)
+			;;
+		*)
+			echo "Exit code: $exit_code"
+			;;
+	esac
+}
