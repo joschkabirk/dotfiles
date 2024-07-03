@@ -67,13 +67,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'                       " git plugin. Use any git command with ':G <command>', like ':G status'
     Plug 'airblade/vim-gitgutter'                   " Show git changes (+/-/~) next to line numbers
     Plug 'itchyny/lightline.vim'                    " Minimal status line
-    Plug 'mhartington/oceanic-next'                 " Dark colorscheme 
     Plug 'vim-python/python-syntax'                 " Python syntax highlight
     Plug 'Vimjas/vim-python-pep8-indent'            " Fixes python indenting (pep8 conventions)
     Plug 'psf/black'                                " Python code formatter https://black.readthedocs.io/en/stable/integrations/editors.html#vim
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     Plug 'PhilRunninger/nerdtree-visual-selection'
+    Plug 'mhartington/oceanic-next'                 " Colorscheme used for status line
+    Plug 'sainnhe/sonokai'                          " Colorscheme used for editor
     " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
@@ -159,7 +160,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " -----------------------------------------------------------------------------
 " Colorscheme and status bar
 " -----------------------------------------------------------------------------
-colorscheme OceanicNext
+let g:sonokai_disable_italic_comment = 1  " this is needed if running on older linux versions
+colorscheme sonokai
+
 " Use 'filename' instead of 'absolutepath' to just show the filename
 let g:lightline = {
       \ 'colorscheme': 'Tomorrow_Night',
