@@ -74,7 +74,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     Plug 'PhilRunninger/nerdtree-visual-selection'
     Plug 'mhartington/oceanic-next'                 " Colorscheme used for status line
-    Plug 'sainnhe/sonokai'                          " Colorscheme used for editor
+    Plug 'sainnhe/sonokai'                          " Colorscheme used for editor (backup)
+    Plug 'sainnhe/edge'                             " Colorscheme used for editor -- very similar to Atom colorscheme
     " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
@@ -161,7 +162,8 @@ let g:ctrlp_working_path_mode = 'ra'
 " Colorscheme and status bar
 " -----------------------------------------------------------------------------
 let g:sonokai_disable_italic_comment = 1  " this is needed if running on older linux versions
-colorscheme sonokai
+let g:edge_disable_italic_comment = 1  " this is needed if running on older linux versions
+colorscheme edge
 
 " Use 'filename' instead of 'absolutepath' to just show the filename
 let g:lightline = {
