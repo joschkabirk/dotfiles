@@ -73,8 +73,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-scripts/ReplaceWithRegister'          " Replace an object with current yank using 'gr<motion>', e.g. 'griw'
     Plug 'christoomey/vim-tmux-navigator'           " Allows to switch between vim splits and tmux panes with <ctrl>+hjkl
     Plug 'PhilRunninger/nerdtree-visual-selection'
-    Plug 'mhartington/oceanic-next'                 " Colorscheme used for status line
-    Plug 'sainnhe/sonokai'                          " Colorscheme used for editor
+    Plug 'mhartington/oceanic-next'                 " Colorscheme - very robust to work on different operating systems
+    " Plug 'sainnhe/sonokai'                          " Colorscheme used for editor
+    " Plug 'sainnhe/edge'                          " Colorscheme used for editor
     " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
@@ -161,7 +162,8 @@ let g:ctrlp_working_path_mode = 'ra'
 " Colorscheme and status bar
 " -----------------------------------------------------------------------------
 let g:sonokai_disable_italic_comment = 1  " this is needed if running on older linux versions
-colorscheme sonokai
+" colorscheme sonokai
+colorscheme OceanicNext
 
 " Use 'filename' instead of 'absolutepath' to just show the filename
 let g:lightline = {
@@ -195,15 +197,15 @@ autocmd FileType tex setlocal ts=2 sts=2 sw=2 expandtab
 
 let g:tmux_navigator_no_mappings = 1
 
+" -----------------------------------------------------------------------------
+" tmux vim navigator
+" -----------------------------------------------------------------------------
 nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <C-w>w :TmuxNavigatePrevious<cr>
 nnoremap <silent> <C-w><C-w> :TmuxNavigatePrevious<cr>
-
-
-nmap cp <Plug>OSCYank
 
 " The 'end' below is there to enclose all the above in the overall if/else
 " block which separates the VSCode stuff from the default vim/neovim stuff
