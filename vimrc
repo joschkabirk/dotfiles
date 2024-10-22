@@ -75,7 +75,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'PhilRunninger/nerdtree-visual-selection'
     Plug 'mhartington/oceanic-next'                 " Colorscheme - very robust to work on different operating systems
     " Plug 'sainnhe/sonokai'                          " Colorscheme used for editor
-    " Plug 'sainnhe/edge'                          " Colorscheme used for editor
+    Plug 'sainnhe/edge'                          " Colorscheme used for editor
     " Plug 'github/copilot.vim'                       " Copilot for vim
 call plug#end()
 
@@ -162,8 +162,13 @@ let g:ctrlp_working_path_mode = 'ra'
 " Colorscheme and status bar
 " -----------------------------------------------------------------------------
 let g:sonokai_disable_italic_comment = 1  " this is needed if running on older linux versions
+let g:edge_disable_italic_comment = 1  " this is needed if running on older linux versions
 " colorscheme sonokai
-colorscheme OceanicNext
+if has("nvim")
+    colorscheme edge
+else
+    colorscheme OceanicNext
+endif
 
 " Use 'filename' instead of 'absolutepath' to just show the filename
 let g:lightline = {
